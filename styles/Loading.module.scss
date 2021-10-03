@@ -1,0 +1,42 @@
+.loader {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #FAFAFB;
+    .loading {
+        background-color: #fff;
+        width: 340px;
+        padding: 2.5rem 1.5rem;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba($color: #000000, $alpha: 0.1),
+                    0 -1px 12px rgba($color: #000000, $alpha: 0.1);
+        h2 {
+            font-size: 18px;
+            font-weight: 500;
+            font-style: normal;
+            line-height: 27px;
+            color: #4f4f4f;
+            padding-bottom: 1.5rem;
+            text-align: left;
+        }
+        .indicator {
+            background-color: #f2f2f2;
+            border-radius: 8px;
+            height: 6px;
+            width: 100%;
+            position: relative;
+            .doddle {
+                width: 60px;
+                height: 100%;
+                background-color: #2F80ED;
+                border-radius: 8px;
+                z-index: 2;
+                transform: translateX(30px);
+            }
+        }
+    }
+}
+
+
+
