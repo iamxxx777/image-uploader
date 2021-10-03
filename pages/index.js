@@ -1,7 +1,7 @@
 import Head from 'next/head'
 
 // Components
-import Dropbox from '../componenets/Dropbox/Dropbox'
+import Dropbox from '../components/Dropbox/Dropbox'
 
 import styles from '../styles/Home.module.scss'
 

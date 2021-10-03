@@ -1,4 +1,4 @@
-import Loading from "../componenets/Loading/Loading"
+import Loading from "../components/Loading/Loading"
 
 const test = () => {
     return (
