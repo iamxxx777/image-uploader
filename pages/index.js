@@ -1,11 +1,44 @@
+import { useState, useRef, useEffect } from 'react'
 import Head from 'next/head'
 
 // Components
-import Dropbox from '../components/Dropbox/Dropbox'
+import Dragdrop from '../components/DragDrop/DragDrop'
 
 import styles from '../styles/Home.module.scss'
 
 export default function Home() {
+
+  const [files, setFiles] = useState([]);
+  const [image, setImage] = useState("");
+  const inputRef = useRef(null);
+  const buttonRef = useRef(null);
+
+  // For drag and drop
+  const handleUpload = (data) => {
+    let newFiles = [...files, data];
+    setFiles(newFiles);
+  }
+  // For select images
+  const handleChange = (e) => {
+    setImage(e.target.files[0]);
+  }
+
+  useEffect(() => {
+
+    /* Add an eventListener to button and make it trigger the click function
+    on the input element when it (button) is clicked */
+
+    const handleInput = () => {
+      inputRef.current.click();
+    }
+
+    let button = buttonRef.current;
+    button.addEventListener('click', handleInput);
+
+    return () => button.removeEventListener('click', handleInput);
+  });
+
+
   return (
     <div className={styles.container}>
       <Head>
@@ -21,12 +54,12 @@ export default function Home() {
           <h1>Upload your image</h1>
           <p>File should be Jpeg, Png...</p>
         </div>
-        <Dropbox />
+        <Dragdrop upload={handleUpload} />
         <div className={styles.file}>
           <p>Or</p>
-          <form>
-            <button>Choose a file</button>
-            <input type="file" name="image" />
+          <form onSubmit={(e) => e.preventDefault()}>
+            <button ref={buttonRef} >Choose a file</button>
+            <input ref={inputRef} onChange={handleChange} type="file" name="image" />
           </form>
         </div>
       </main>  

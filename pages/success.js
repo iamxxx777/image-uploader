@@ -16,7 +16,7 @@ const success = () => {
             <div className={successStyles.success_container}>
                 <div className={successStyles.success_top}>
                     <div className={successStyles.icon}>
-                        <i class="fa fa-check-circle" aria-hidden="true"></i>
+                        <i className="fa fa-check-circle" aria-hidden="true"></i>
                     </div>
                     <h2>Uploaded Successfully</h2>
                 </div>
@@ -30,7 +30,7 @@ const success = () => {
                 <div className={successStyles.link}>
                     <p>https://www.figma.com/file/NxbZm3CAovYh89dFXe7EOw</p>
                     <button title="copy link">
-                        <i class="fa fa-clone" aria-hidden="true"></i>
+                        <i className="fa fa-clone" aria-hidden="true"></i>
                     </button>
                 </div>
             </div>
