@@ -13,7 +13,7 @@
         border-radius: 12px;
         padding: 2rem;
         height: fit-content;
-        max-width: 360px;
+        max-width: 400px;
         width: 100%;
         display: flex;
         flex-direction: column;
@@ -61,15 +61,24 @@
             border: solid 1px #E0E0E0;
             border-radius: 8px;
             overflow: hidden;
-            p {
+            position: relative;
+            textarea {
                 font-size: 9px;
+                font-weight: 500;
                 line-height: 12px;
                 text-align: center;
                 align-self: center;
                 justify-self: center;
                 padding-left: 4px;
+                padding-top: 4px;
                 padding-right: 7px;
-                word-break: break-word;
+                resize: none;
+                border: none;
+                outline: none;
+                background-color: transparent;
+                color: #828282;
+                width: 100%;
+                font-family: inherit;
             }
             button {
                 background-color: #2F80ED;
@@ -87,6 +96,18 @@
                 &:focus {
                     opacity: 0.8;
                 }
+            }
+            .copy {
+                position: absolute;
+                bottom: -30px;
+                right: 0;
+                background-color: rgba(151, 190, 244, 0.5);
+                color: #BDBDBD;
+                border-radius: 3px;
+                font-size: 9px;
+                font-weight: 500;
+                line-height: 12px;
+                padding: 4px;
             }
         }
     }

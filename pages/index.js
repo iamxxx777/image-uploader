@@ -1,15 +1,18 @@
 import { useState, useRef, useEffect } from 'react'
 import Head from 'next/head'
+import Router from 'next/router'
+import axios from 'axios'
 
 // Components
 import Dragdrop from '../components/DragDrop/DragDrop'
+import Loading from '../components/Loading/Loading'
 
 import styles from '../styles/Home.module.scss'
 
 export default function Home() {
 
   const [files, setFiles] = useState([]);
-  const [image, setImage] = useState("");
+  const [isUploading, setIsUploading] = useState(false);
   const inputRef = useRef(null);
   const buttonRef = useRef(null);
 
@@ -17,10 +20,40 @@ export default function Home() {
   const handleUpload = (data) => {
     let newFiles = [...files, data];
     setFiles(newFiles);
+    submitImage(data[0]);
   }
+
   // For select images
   const handleChange = (e) => {
-    setImage(e.target.files[0]);
+    submitImage(e.target.files[0]);
+    e.target.value = "";
+  }
+
+  const submitImage = async (file) => {
+
+    try {
+      let formData = new FormData();
+      formData.append("image", file);
+
+      const config = {
+        headers: {
+          'content-type': 'multipart/form-data'
+        }
+      };
+
+      setIsUploading(true);
+
+      const { data } = await axios.post(`/api/upload`, formData, config);
+
+      setIsUploading(false);
+
+      Router.push(`/success?imageUrl=${data.imageUrl}`, 'success')
+
+    } catch (error) {
+      console.log(error);
+    }
+
+    
   }
 
   useEffect(() => {
@@ -63,6 +96,9 @@ export default function Home() {
           </form>
         </div>
       </main>  
+      {isUploading && (<Loading />)}
     </div>
   )
 }
+
+// Developed by Dayo-ajobiewe Hope

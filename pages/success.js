@@ -1,9 +1,24 @@
-import Image from "next/image"
 import Head from "next/head";
-import Maldives from "../public/maldives.jpg";
+import Image from "next/image";
+import { useRef, useState } from "react";
 import successStyles from "../styles/Success.module.scss";
 
-const success = () => {
+const success = ({ imageUrl }) => {
+
+    // const router = useRouter;
+    // const { imageUrl } = router;
+    const textRef = useRef(null);
+    const [copied, setCopied] = useState(false);
+
+    const copyUrl = (e) => {
+        textRef.current.select();
+        document.execCommand('copy');
+        e.target.focus();
+        setCopied(true);
+
+        setTimeout(() => setCopied(false), 2500);
+    }
+
     return (
         <div className={successStyles.success}>
             <Head>
@@ -20,22 +35,34 @@ const success = () => {
                     </div>
                     <h2>Uploaded Successfully</h2>
                 </div>
-                <div className={successStyles.success_img}>
-                    <Image
-                        src={Maldives}
-                        alt="Successfully uploaded image"
-                        priority
+                <div className={successStyles.success_img}>   
+                    <Image 
+                        src={imageUrl}
+                        width={350}
+                        height={325}
+                        alt="uploaded image"
+                        priority 
                     />
+                    {/* <img src={imageUrl} alt="uploaded image" /> */} 
                 </div>
                 <div className={successStyles.link}>
-                    <p>https://www.figma.com/file/NxbZm3CAovYh89dFXe7EOw</p>
-                    <button title="copy link">
+                    <form onSubmit={(e) => e.preventDefault()}>
+                        <textarea ref={textRef}>{imageUrl}</textarea>
+                    </form>
+                    <button onClick={copyUrl} title="copy link">
                         <i className="fa fa-clone" aria-hidden="true"></i>
                     </button>
+                    {copied && (<div className={successStyles.copy}>Copied to clipboard</div>)}
                 </div>
             </div>
         </div>
     )
+}
+
+success.getInitialProps = async ({ query }) => {
+    const { imageUrl } = query;
+
+    return { imageUrl };
 }
 
 export default success
