@@ -3,7 +3,7 @@ import Image from "next/image";
 import { useRef, useState } from "react";
 import successStyles from "../styles/Success.module.scss";
 
-const success = ({ imageUrl }) => {
+const Success = ({ imageUrl }) => {
 
     // Be sure to add the below code to your next.congig.js to enable 
     // cloudinary routes if you would use next/image.
@@ -69,4 +69,4 @@ success.getInitialProps = async ({ query }) => {
     return { imageUrl };
 }
 
-export default success
+export default Success;
