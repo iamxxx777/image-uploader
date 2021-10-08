@@ -4,7 +4,7 @@ import Router from 'next/router'
 import axios from 'axios'
 
 // Components
-import Dragdrop from '../components/DragDrop/DragDrop'
+import Dragdrop from '../components/Dragdrop/Dragdrop'
 import Loading from '../components/Loading/Loading'
 
 import styles from '../styles/Home.module.scss'
