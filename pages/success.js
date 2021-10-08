@@ -51,7 +51,7 @@ const Success = ({ imageUrl }) => {
                 </div>
                 <div className={successStyles.link}>
                     <form onSubmit={(e) => e.preventDefault()}>
-                        <textarea ref={textRef}>{imageUrl}</textarea>
+                        <textarea ref={textRef} value={imageUrl}></textarea>
                     </form>
                     <button onClick={copyUrl} title="copy link">
                         <i className="fa fa-clone" aria-hidden="true"></i>
