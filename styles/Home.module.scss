@@ -10,6 +10,7 @@
   align-items: center;
   position: relative;
   .main {
+    position: relative;
     background-color: #fff;
     border-radius: 12px;
     padding: 2rem;
@@ -84,12 +85,27 @@
           }
         }
     }
+    .author {
+      position: absolute;
+      right: -80px;
+      top: 200px;
+      font-size: 12px;
+      font-style: normal;
+      line-height: 15px;
+      padding-bottom: 1rem;
+      color: #2F80ED;
+      transform: rotate(90deg);
+    }
   }
 }
 
-
-.title a:hover,
-.title a:focus,
-.title a:active {
-  text-decoration: underline;
+@media (max-width: 480px) {
+  .container {
+    .main {
+      padding: 1.5rem 1.2rem;
+      .author {
+        right: -55px;
+      }
+    }
+  }
 }

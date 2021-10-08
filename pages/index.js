@@ -76,8 +76,8 @@ export default function Home() {
     <div className={styles.container}>
       <Head>
         <title>Image uploader</title>
-        <meta name="description" content="A webapp for uploading images to the cloud" />
-        <meta name="keywords" content="CLOUDINARY, IMAGE, IMAGE UPLOAD, CLOUDINARY IMAGE, UPLOAD IMAGE, CLOUD IMAGE"  />
+        <meta name="description" content="A webapp that utilizies darg and drop functionality to upload images to the cloud" />
+        <meta name="keywords" content="CLOUDINARY, DRAG AND DROP IMAGE, DRAG AND DROP IMAGES, IMAGE, IMAGE UPLOAD, CLOUDINARY IMAGE, UPLOAD IMAGE, CLOUD IMAGE"  />
         <link rel="icon" href="/favicon.ico" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
       </Head>
@@ -95,6 +95,7 @@ export default function Home() {
             <input ref={inputRef} onChange={handleChange} type="file" name="image" />
           </form>
         </div>
+        <div className={styles.author}>By Dayo-ajobiewe Hope</div>
       </main>  
       {isUploading && (<Loading />)}
     </div>

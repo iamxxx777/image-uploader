@@ -5,8 +5,12 @@ import successStyles from "../styles/Success.module.scss";
 
 const success = ({ imageUrl }) => {
 
-    // const router = useRouter;
-    // const { imageUrl } = router;
+    // Be sure to add the below code to your next.congig.js to enable 
+    // cloudinary routes if you would use next/image.
+    // images: {
+    //      domains: ['res.cloudinary.com'],
+    // }
+    
     const textRef = useRef(null);
     const [copied, setCopied] = useState(false);
 
@@ -22,7 +26,7 @@ const success = ({ imageUrl }) => {
     return (
         <div className={successStyles.success}>
             <Head>
-                <title>Image uploader</title>
+                <title>Uploaded image</title>
                 <meta name="description" content="A webapp for uploading images to the cloud" />
                 <meta name="keywords" content="CLOUDINARY, IMAGE, IMAGE UPLOAD, CLOUDINARY IMAGE, UPLOAD IMAGE, CLOUD IMAGE"  />
                 <link rel="icon" href="/favicon.ico" />

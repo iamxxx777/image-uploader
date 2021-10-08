@@ -99,10 +99,10 @@
             }
             .copy {
                 position: absolute;
-                bottom: -30px;
-                right: 0;
-                background-color: rgba(151, 190, 244, 0.5);
-                color: #BDBDBD;
+                bottom: 3px;
+                right: 50px;
+                background-color: rgba(0, 0, 0, 0.5);
+                color: #EAEAEA;
                 border-radius: 3px;
                 font-size: 9px;
                 font-weight: 500;
@@ -110,5 +110,14 @@
                 padding: 4px;
             }
         }
+    }
+}
+
+@media (max-width: 480px) {
+    .success {
+      .success_container {
+        padding: 1.5rem 1.2rem;
+        
+      }
     }
 }
