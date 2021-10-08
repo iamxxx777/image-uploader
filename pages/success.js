@@ -63,7 +63,7 @@ const Success = ({ imageUrl }) => {
     )
 }
 
-success.getInitialProps = async ({ query }) => {
+Success.getInitialProps = async ({ query }) => {
     const { imageUrl } = query;
 
     return { imageUrl };
