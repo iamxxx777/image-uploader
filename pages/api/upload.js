@@ -28,7 +28,6 @@ apiRoute.post(async (req, res) => {
             if(result.secure_url) {
                 data.imgURL = result.secure_url;
                 data.cloudID = result.public_id;
-                console.log(data);
                 let newImage = new Image(data);
                 await newImage.save();
                 res.status(201).json({
