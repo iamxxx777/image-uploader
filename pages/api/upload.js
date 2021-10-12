@@ -1,7 +1,7 @@
 import cloudinaryV from '../../config/cloudinary';
 import upload from '../../config/multer';
 import dbConnect from '../../config/dbConnect';
-import Image from '../../models/file';
+import Photo from '../../models/photo';
 import nextConnect from 'next-connect';
 
 dbConnect();
@@ -30,7 +30,7 @@ apiRoute.post(async (req, res) => {
                 data.imgURL = result.secure_url;
                 data.cloudID = result.public_id;
                 data.label = req.file.originalname.replace(/.jpg|.jpeg|.png/, "");
-                let newImage = new Image(data);
+                let newImage = new Photo(data);
                 await newImage.save();
                 res.status(201).json({
                     success: "Image uploaded succesfully",
