@@ -23,11 +23,13 @@ apiRoute.post(async (req, res) => {
 
     try {
         if(req.file) {
+            console.log(req.file);
             const result = await cloudinaryV.uploader.upload(req.file.path);
             
             if(result.secure_url) {
                 data.imgURL = result.secure_url;
                 data.cloudID = result.public_id;
+                data.label = req.file.originalname.replace(/.jpg|.jpeg|.png/, "");
                 let newImage = new Image(data);
                 await newImage.save();
                 res.status(201).json({
