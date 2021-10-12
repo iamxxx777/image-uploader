@@ -23,7 +23,6 @@ apiRoute.post(async (req, res) => {
 
     try {
         if(req.file) {
-            console.log(req.file);
             const result = await cloudinaryV.uploader.upload(req.file.path);
             
             if(result.secure_url) {
