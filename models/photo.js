@@ -14,8 +14,10 @@ const photoSchema = new Schema({
     },
     cloudID: {
         type: String,
-    }
-});
+    },
+    },
+{timestamps: true}
+);
 
 
 module.exports = mongoose.models.Photo || mongoose.model('Photo', photoSchema);
