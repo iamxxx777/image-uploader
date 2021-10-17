@@ -18,6 +18,16 @@ const apiRoute = nextConnect({
 
 apiRoute.use(upload.single('image'));
 
+apiRoute.get(async (req, res) => {
+    try {
+        const images = await Photo.find({}).sort({'createdAt': -1});
+        res.status(201).json(images);
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({error: "Server Error"});
+    }
+})
+
 apiRoute.post(async (req, res) => {
     let data = {};
 
